@@ -6,10 +6,12 @@ require('dotenv').load();
 
 const app = express();
 
-// const queryProducts = async () => {
-//   const resp = await axios.get(`https://api.mercadolibre.com/items/MLA749325859/`)
-//   return resp.data;
-// } 
+// allow cors
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get("/api/items", async (req, res) => {
   const response = await queryProducts(req.query);

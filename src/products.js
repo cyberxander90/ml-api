@@ -13,7 +13,7 @@ module.exports.queryProducts = async (params) => {
   const currencies = await queryCurrencies(results.map(item => item.currency_id));
 
   // get categories
-  const categories = (getNestedProps(data, ['filter', 0, 'values', 0, 'path_from_root']) || [])
+  const categories = (getNestedProps(data, ['filters', 0, 'values', 0, 'path_from_root']) || [])
     .map(category => category && category.name);
 
   // product items
