@@ -5,6 +5,7 @@ const { queryCurrencies } = require('./currencies');
 const { findCategory } = require('./categories');
 const { getNestedProps, getUser, mapProductItem } = require('./helpers');
 
+//
 module.exports.queryProducts = async (params) => {
   const { data } = await axios.get(`${BASE_API_URL}/sites/MLA/search?${querystring.stringify(params)}`);
   const { results } = data;
@@ -25,6 +26,7 @@ module.exports.queryProducts = async (params) => {
   };
 };
 
+//
 module.exports.findProduct = async (productId) => {
   const [
     { data: product },
@@ -43,6 +45,7 @@ module.exports.findProduct = async (productId) => {
     .path_from_root
     .map(category => category && category.name);
 
+  // product item
   return {
     author: getUser(),
     categories,
