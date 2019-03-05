@@ -1,18 +1,17 @@
 # Mercado Libre Test - API
 
-This project is a simple **express** API to play as proxy between the **react frontend application** and the real **ML API**.
+This project is a simple [express](http://expressjs.com/) API to play as proxy between the [Mercado Libre Test - Frontend](https://github.com/cyberxander90/ml-frontend) and the real [ML - API](https://api.mercadolibre.com).
 
-# Run
+## Run
 
 To start the server run
 
 ```
 > npm install
-
 > npm run serve
 ```
 
-# Env
+## Env
 
 You can setup your **.env** file to override the defaults props
 
