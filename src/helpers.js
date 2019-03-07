@@ -18,10 +18,18 @@ module.exports.getUser = () => ({
 
 // map product from ML api to the front-end expected response
 module.exports.mapProductItem = (item, currency, isForList = true, description = null) => {
+  const pictures = (item.pictures || [])
+    .map(picture => picture.url)
+    .filter(url => url);
+  if (!pictures.length) {
+    pictures.push(item.thumbnail)
+  }
+
   let result = {
     id: item.id,
     title: item.title,
     picture: item.thumbnail,
+    pictures,
     condition: item.condition,
     free_shipping: getNestedProps(item, ['shipping', 'free_shipping']),
     price: {
